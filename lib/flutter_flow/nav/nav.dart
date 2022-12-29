@@ -100,8 +100,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'openData',
               path: 'openData',
+              asyncParams: {
+                'datas': getDoc(['datas'], DatasRecord.serializer),
+              },
               builder: (context, params) => OpenDataWidget(
-                datas: params.getParam('datas', ParamType.String),
+                datas: params.getParam('datas', ParamType.Document),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

@@ -76,10 +76,13 @@ class _ListWidgetState extends State<ListWidget> {
                             'openData',
                             queryParams: {
                               'datas': serializeParam(
-                                '',
-                                ParamType.String,
+                                columnDatasRecord,
+                                ParamType.Document,
                               ),
                             }.withoutNulls,
+                            extra: <String, dynamic>{
+                              'datas': columnDatasRecord,
+                            },
                           );
                         },
                         child: ListTile(

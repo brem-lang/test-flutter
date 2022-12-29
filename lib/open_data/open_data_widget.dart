@@ -1,3 +1,4 @@
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class OpenDataWidget extends StatefulWidget {
     this.datas,
   }) : super(key: key);
 
-  final String? datas;
+  final DatasRecord? datas;
 
   @override
   _OpenDataWidgetState createState() => _OpenDataWidgetState();
@@ -67,24 +68,15 @@ class _OpenDataWidgetState extends State<OpenDataWidget> {
                   ),
                 ),
                 Text(
-                  valueOrDefault<String>(
-                    widget.datas,
-                    'name',
-                  ),
+                  widget.datas!.name!,
                   style: FlutterFlowTheme.of(context).title1,
                 ),
                 Text(
-                  valueOrDefault<String>(
-                    widget.datas,
-                    'email',
-                  ),
+                  widget.datas!.email!,
                   style: FlutterFlowTheme.of(context).bodyText1,
                 ),
                 Text(
-                  valueOrDefault<String>(
-                    widget.datas,
-                    'description',
-                  ),
+                  widget.datas!.description!,
                   style: FlutterFlowTheme.of(context).bodyText2,
                 ),
               ],
