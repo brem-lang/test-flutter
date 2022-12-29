@@ -76,7 +76,7 @@ class _ListWidgetState extends State<ListWidget> {
                             'openData',
                             queryParams: {
                               'datas': serializeParam(
-                                '',
+                                columnDatasRecord.name,
                                 ParamType.String,
                               ),
                             }.withoutNulls,
