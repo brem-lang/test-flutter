@@ -319,6 +319,7 @@ class _AddUserWidgetState extends State<AddUserWidget> {
                         team: teamSelectValue,
                       );
                       await DatasRecord.collection.doc().set(datasCreateData);
+                      context.pop();
                     },
                     text: 'Add',
                     options: FFButtonOptions(
