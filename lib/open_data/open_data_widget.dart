@@ -91,13 +91,13 @@ class _OpenDataWidgetState extends State<OpenDataWidget> {
                       context.pushNamed(
                         'Update',
                         queryParams: {
-                          'updateData': serializeParam(
+                          'dataUpdate': serializeParam(
                             widget.datas,
                             ParamType.Document,
                           ),
                         }.withoutNulls,
                         extra: <String, dynamic>{
-                          'updateData': widget.datas,
+                          'dataUpdate': widget.datas,
                         },
                       );
                     },

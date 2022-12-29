@@ -9,10 +9,10 @@ import 'package:google_fonts/google_fonts.dart';
 class UpdateWidget extends StatefulWidget {
   const UpdateWidget({
     Key? key,
-    this.updateData,
+    this.dataUpdate,
   }) : super(key: key);
 
-  final DatasRecord? updateData;
+  final DatasRecord? dataUpdate;
 
   @override
   _UpdateWidgetState createState() => _UpdateWidgetState();
@@ -30,10 +30,12 @@ class _UpdateWidgetState extends State<UpdateWidget> {
   @override
   void initState() {
     super.initState();
-    emailAddressController = TextEditingController();
-    userNameController = TextEditingController();
-    titleRoleController = TextEditingController();
-    shortBioController = TextEditingController();
+    emailAddressController =
+        TextEditingController(text: widget.dataUpdate!.email);
+    userNameController = TextEditingController(text: widget.dataUpdate!.name);
+    titleRoleController = TextEditingController(text: widget.dataUpdate!.role);
+    shortBioController =
+        TextEditingController(text: widget.dataUpdate!.description);
   }
 
   @override
@@ -96,7 +98,6 @@ class _UpdateWidgetState extends State<UpdateWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                       child: TextFormField(
                         controller: userNameController,
-                        readOnly: widget.updateData != null,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Full Name',

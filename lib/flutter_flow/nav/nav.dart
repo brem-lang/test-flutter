@@ -111,10 +111,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Update',
               path: 'update',
               asyncParams: {
-                'updateData': getDoc(['datas'], DatasRecord.serializer),
+                'dataUpdate': getDoc(['datas'], DatasRecord.serializer),
               },
               builder: (context, params) => UpdateWidget(
-                updateData: params.getParam('updateData', ParamType.Document),
+                dataUpdate: params.getParam('dataUpdate', ParamType.Document),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
