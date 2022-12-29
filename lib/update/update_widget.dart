@@ -285,10 +285,16 @@ class _UpdateWidgetState extends State<UpdateWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      final datasUpdateData = createDatasRecordData();
+                      final datasUpdateData = createDatasRecordData(
+                        name: userNameController!.text,
+                        email: emailAddressController!.text,
+                        role: titleRoleController!.text,
+                        description: shortBioController!.text,
+                      );
                       await widget.dataUpdate!.reference
                           .update(datasUpdateData);
-                      context.pop();
+
+                      context.pushNamed('List');
                     },
                     text: 'Update',
                     options: FFButtonOptions(
