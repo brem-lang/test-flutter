@@ -96,6 +96,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'List',
               path: 'list',
               builder: (context, params) => ListWidget(),
+            ),
+            FFRoute(
+              name: 'openData',
+              path: 'openData',
+              builder: (context, params) => OpenDataWidget(
+                datas: params.getParam('datas', ParamType.String),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
