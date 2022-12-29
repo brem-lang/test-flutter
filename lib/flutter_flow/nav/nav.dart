@@ -106,6 +106,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => OpenDataWidget(
                 datas: params.getParam('datas', ParamType.Document),
               ),
+            ),
+            FFRoute(
+              name: 'Update',
+              path: 'update',
+              asyncParams: {
+                'update': getDoc(['datas'], DatasRecord.serializer),
+              },
+              builder: (context, params) => UpdateWidget(
+                update: params.getParam('update', ParamType.Document),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
