@@ -2,6 +2,7 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ListWidget extends StatefulWidget {
@@ -85,22 +86,35 @@ class _ListWidgetState extends State<ListWidget> {
                             },
                           );
                         },
-                        child: ListTile(
-                          title: Text(
-                            columnDatasRecord.name!,
-                            style: FlutterFlowTheme.of(context).title3,
+                        child: Slidable(
+                          actionPane: const SlidableScrollActionPane(),
+                          secondaryActions: [
+                            IconSlideAction(
+                              caption: 'Delete',
+                              color: Color(0xFFFF000F),
+                              icon: Icons.delete,
+                              onTap: () async {
+                                await columnDatasRecord.reference.delete();
+                              },
+                            ),
+                          ],
+                          child: ListTile(
+                            title: Text(
+                              columnDatasRecord.name!,
+                              style: FlutterFlowTheme.of(context).title3,
+                            ),
+                            subtitle: Text(
+                              columnDatasRecord.email!,
+                              style: FlutterFlowTheme.of(context).subtitle2,
+                            ),
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Color(0xFF303030),
+                              size: 20,
+                            ),
+                            tileColor: Color(0xFFF5F5F5),
+                            dense: false,
                           ),
-                          subtitle: Text(
-                            columnDatasRecord.email!,
-                            style: FlutterFlowTheme.of(context).subtitle2,
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Color(0xFF303030),
-                            size: 20,
-                          ),
-                          tileColor: Color(0xFFF5F5F5),
-                          dense: false,
                         ),
                       ),
                     ],
