@@ -72,7 +72,15 @@ class _ListWidgetState extends State<ListWidget> {
                     children: [
                       InkWell(
                         onTap: () async {
-                          context.pushNamed('openData');
+                          context.pushNamed(
+                            'openData',
+                            queryParams: {
+                              'datas': serializeParam(
+                                '',
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
                         child: ListTile(
                           title: Text(
